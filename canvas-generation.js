@@ -49,7 +49,7 @@ const canvas = createCanvas(width, height);
 const context = canvas.getContext("2d");
 
 // Fill the background
-context.fillStyle = "#66FFEE";
+context.fillStyle = "#0077ff";
 context.fillRect(0, 0, width, height);
 
 // re-adjust width and height
@@ -61,8 +61,8 @@ context.shadowOffsetX = 0;
 context.shadowOffsetY = 0;
 context.shadowBlur = 25;
 context.shadowColor = "rgba(0,0,0,1)";
-context.fillStyle = "#000";
-roundRect(context, 25, 25, width, height, 5, true, false);
+context.fillStyle = "#222";
+roundRect(context, 25, 25, width, height, 15, true, false);
 
 // set the copy style
 context.font = "bold 82pt Montserrat";
@@ -75,7 +75,7 @@ width -= 50;
 height -= 50;
 
 // redraw the title over multiple lines
-const title = "Best Budget Monitors for Developers 📺👌";
+const title = "Baran's ";
 const words = title.split(" ");
 let line = "";
 let fromTop = 70;
