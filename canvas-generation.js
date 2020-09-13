@@ -53,16 +53,16 @@ context.fillStyle = "#0077ff";
 context.fillRect(0, 0, width, height);
 
 // re-adjust width and height
-width = width - 50;
-height = height - 50;
+width = width - 60;
+height = height - 60;
 
 // fill an inner container to simulate a border
 context.shadowOffsetX = 0;
 context.shadowOffsetY = 0;
-context.shadowBlur = 25;
+context.shadowBlur = 15;
 context.shadowColor = "rgba(0,0,0,1)";
 context.fillStyle = "#222";
-roundRect(context, 25, 25, width, height, 15, true, false);
+roundRect(context, 30, 30, width, height, 15, true, false);
 
 // set the copy style
 context.font = "bold 82pt Montserrat";
@@ -75,7 +75,7 @@ width -= 50;
 height -= 50;
 
 // redraw the title over multiple lines
-const title = "Baran's ";
+const title = "Best Budget Monitors for Developers";
 const words = title.split(" ");
 let line = "";
 let fromTop = 70;
