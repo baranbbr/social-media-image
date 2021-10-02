@@ -1,14 +1,14 @@
-const fs = require('fs');
-const { createCanvas } = require('canvas');
+const fs = require("fs");
+const { createCanvas } = require("canvas");
 
 function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-  if (typeof stroke === 'undefined') {
+  if (typeof stroke === "undefined") {
     stroke = true;
   }
-  if (typeof radius === 'undefined') {
+  if (typeof radius === "undefined") {
     radius = 5;
   }
-  if (typeof radius === 'number') {
+  if (typeof radius === "number") {
     radius = { tl: radius, tr: radius, br: radius, bl: radius };
   } else {
     var defaultRadius = { tl: 0, tr: 0, br: 0, bl: 0 };
@@ -46,23 +46,27 @@ let height = 630;
 
 // draw canvas
 const canvas = createCanvas(width, height);
-const context = canvas.getContext('2d');
+const context = canvas.getContext("2d");
 
 // Fill the background
+<<<<<<< HEAD
 context.fillStyle = '#12134E';
+=======
+context.fillStyle = "#0077ff";
+>>>>>>> 9c0756f95a232e0ea4cd20f91e2ca6342b1b5ef4
 context.fillRect(0, 0, width, height);
 
 // re-adjust width and height
-width = width - 50;
-height = height - 50;
+width = width - 60;
+height = height - 60;
 
 // fill an inner container to simulate a border
 context.shadowOffsetX = 0;
 context.shadowOffsetY = 0;
-context.shadowBlur = 25;
-context.shadowColor = 'rgba(0,0,0,1)';
-context.fillStyle = '#000';
-roundRect(context, 25, 25, width, height, 5, true, false);
+context.shadowBlur = 15;
+context.shadowColor = "rgba(0,0,0,1)";
+context.fillStyle = "#222";
+roundRect(context, 30, 30, width, height, 15, true, false);
 
 // set the copy style
 context.font = '82pt Georgia';
@@ -80,13 +84,13 @@ const words = title.split(' ');
 let line = '';
 let fromTop = 70;
 words.forEach((word) => {
-  let testLine = line + word + ' ';
+  let testLine = line + word + " ";
   if (context.measureText(testLine).width > width) {
     context.fillText(line.trim(), 60, fromTop);
-    line = word + ' ';
+    line = word + " ";
     fromTop = fromTop + 125;
   } else {
-    line = line + word + ' ';
+    line = line + word + " ";
   }
 });
 context.fillText(line.trim(), 60, fromTop);
@@ -114,5 +118,5 @@ context.textAlign = 'right';
 context.fillText('@engagementbait', 1140, 540);
 
 // export image
-const buffer = canvas.toBuffer('image/png');
+const buffer = canvas.toBuffer("image/png");
 fs.writeFileSync(`social-image.png`, buffer);
