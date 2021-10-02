@@ -49,7 +49,7 @@ const canvas = createCanvas(width, height);
 const context = canvas.getContext('2d');
 
 // Fill the background
-context.fillStyle = '#66FFEE';
+context.fillStyle = '#12134E';
 context.fillRect(0, 0, width, height);
 
 // re-adjust width and height
@@ -65,7 +65,7 @@ context.fillStyle = '#000';
 roundRect(context, 25, 25, width, height, 5, true, false);
 
 // set the copy style
-context.font = 'bold 82pt JetBrains Mono';
+context.font = '82pt Georgia';
 context.textAlign = 'left';
 context.textBaseline = 'top';
 context.fillStyle = '#fff';
@@ -75,7 +75,7 @@ width -= 50;
 height -= 50;
 
 // redraw the title over multiple lines
-const title = 'Yours truly.';
+const title = 'Hello World – how was this blog made?';
 const words = title.split(' ');
 let line = '';
 let fromTop = 70;
@@ -104,14 +104,14 @@ context.fillText(line.trim(), 60, fromTop);
 
 // insert domain
 context.fillStyle = '#ccc';
-context.font = 'bold 24pt JetBrains Mono';
-context.fillText('bbab.dev', 60, 540);
+context.font = 'bold 24pt Georgia';
+context.fillText('banf.dev', 60, 540);
 
 // insert handle
 context.fillStyle = '#ccc';
-context.font = 'bold 24pt JetBrains Mono';
+context.font = 'bold 24pt Georgia';
 context.textAlign = 'right';
-context.fillText('@bbab', 1140, 540);
+context.fillText('@engagementbait', 1140, 540);
 
 // export image
 const buffer = canvas.toBuffer('image/png');
