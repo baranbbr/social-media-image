@@ -49,11 +49,7 @@ const canvas = createCanvas(width, height);
 const context = canvas.getContext("2d");
 
 // Fill the background
-<<<<<<< HEAD
 context.fillStyle = '#12134E';
-=======
-context.fillStyle = "#0077ff";
->>>>>>> 9c0756f95a232e0ea4cd20f91e2ca6342b1b5ef4
 context.fillRect(0, 0, width, height);
 
 // re-adjust width and height
