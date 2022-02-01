@@ -1,5 +1,5 @@
 # social-media-image
-Small script to create .png images.
+Small script to create .png images to use for OG images.
 
 ## Usage
 ### Clone this repo.
