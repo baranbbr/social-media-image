@@ -2,42 +2,42 @@ const fs = require("fs");
 const { createCanvas } = require("canvas");
 
 function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-  if (typeof stroke === "undefined") {
-    stroke = true;
-  }
-  if (typeof radius === "undefined") {
-    radius = 5;
-  }
-  if (typeof radius === "number") {
-    radius = { tl: radius, tr: radius, br: radius, bl: radius };
-  } else {
-    var defaultRadius = { tl: 0, tr: 0, br: 0, bl: 0 };
-    for (var side in defaultRadius) {
-      radius[side] = radius[side] || defaultRadius[side];
-    }
-  }
-  ctx.beginPath();
-  ctx.moveTo(x + radius.tl, y);
-  ctx.lineTo(x + width - radius.tr, y);
-  ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-  ctx.lineTo(x + width, y + height - radius.br);
-  ctx.quadraticCurveTo(
-    x + width,
-    y + height,
-    x + width - radius.br,
-    y + height
-  );
-  ctx.lineTo(x + radius.bl, y + height);
-  ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-  ctx.lineTo(x, y + radius.tl);
-  ctx.quadraticCurveTo(x, y, x + radius.tl, y);
-  ctx.closePath();
-  if (fill) {
-    ctx.fill();
-  }
-  if (stroke) {
-    ctx.stroke();
-  }
+	if (typeof stroke === "undefined") {
+		stroke = true;
+	}
+	if (typeof radius === "undefined") {
+		radius = 5;
+	}
+	if (typeof radius === "number") {
+		radius = { tl: radius, tr: radius, br: radius, bl: radius };
+	} else {
+		var defaultRadius = { tl: 0, tr: 0, br: 0, bl: 0 };
+		for (var side in defaultRadius) {
+			radius[side] = radius[side] || defaultRadius[side];
+		}
+	}
+	ctx.beginPath();
+	ctx.moveTo(x + radius.tl, y);
+	ctx.lineTo(x + width - radius.tr, y);
+	ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+	ctx.lineTo(x + width, y + height - radius.br);
+	ctx.quadraticCurveTo(
+		x + width,
+		y + height,
+		x + width - radius.br,
+		y + height
+	);
+	ctx.lineTo(x + radius.bl, y + height);
+	ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+	ctx.lineTo(x, y + radius.tl);
+	ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+	ctx.closePath();
+	if (fill) {
+		ctx.fill();
+	}
+	if (stroke) {
+		ctx.stroke();
+	}
 }
 
 // define canvas size
@@ -49,7 +49,7 @@ const canvas = createCanvas(width, height);
 const context = canvas.getContext("2d");
 
 // Fill the background
-context.fillStyle = '#12134E';
+context.fillStyle = 'rgb(32, 98, 153)';
 context.fillRect(0, 0, width, height);
 
 // re-adjust width and height
@@ -57,15 +57,15 @@ width = width - 60;
 height = height - 60;
 
 // fill an inner container to simulate a border
-context.shadowOffsetX = 0;
-context.shadowOffsetY = 0;
-context.shadowBlur = 15;
-context.shadowColor = "rgba(0,0,0,1)";
-context.fillStyle = "#222";
-roundRect(context, 30, 30, width, height, 15, true, false);
+// context.shadowOffsetX = 0;
+// context.shadowOffsetY = 0;
+// context.shadowBlur = 15;
+// context.shadowColor = "rgba(0,0,0,1)";
+// context.fillStyle = "#222";
+// roundRect(context, 30, 30, width, height, 15, true, false);
 
 // set the copy style
-context.font = '82pt Georgia';
+context.font = '62pt Georgia';
 context.textAlign = 'left';
 context.textBaseline = 'top';
 context.fillStyle = '#fff';
@@ -75,19 +75,19 @@ width -= 50;
 height -= 50;
 
 // redraw the title over multiple lines
-const title = 'Hello World – how was this blog made?';
+const title = "Why your environment variable doesn't work in production";
 const words = title.split(' ');
 let line = '';
 let fromTop = 70;
 words.forEach((word) => {
-  let testLine = line + word + " ";
-  if (context.measureText(testLine).width > width) {
-    context.fillText(line.trim(), 60, fromTop);
-    line = word + " ";
-    fromTop = fromTop + 125;
-  } else {
-    line = line + word + " ";
-  }
+	let testLine = line + word + " ";
+	if (context.measureText(testLine).width > width) {
+		context.fillText(line.trim(), 60, fromTop);
+		line = word + " ";
+		fromTop = fromTop + 125;
+	} else {
+		line = line + word + " ";
+	}
 });
 context.fillText(line.trim(), 60, fromTop);
 
@@ -104,14 +104,14 @@ context.fillText(line.trim(), 60, fromTop);
 
 // insert domain
 context.fillStyle = '#ccc';
-context.font = 'bold 24pt Georgia';
-context.fillText('banf.dev', 60, 540);
+context.font = 'bold 24pt Archia';
+context.fillText('baran.live', 60, 540);
 
 // insert handle
 context.fillStyle = '#ccc';
-context.font = 'bold 24pt Georgia';
+context.font = 'bold 24pt Archia';
 context.textAlign = 'right';
-context.fillText('@engagementbait', 1140, 540);
+context.fillText('x.com/banf', 1140, 540);
 
 // export image
 const buffer = canvas.toBuffer("image/png");
