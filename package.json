@@ -26,7 +26,7 @@
     "brace-expansion": "^1.1.11",
     "code-point-at": "^1.1.0",
     "core-util-is": "^1.0.2",
-    "debug": "^3.2.6",
+    "debug": "^3.2.7",
     "canvas": "^2.6.1",
     "console-control-strings": "^1.1.0",
     "deep-extend": "^0.6.0",
